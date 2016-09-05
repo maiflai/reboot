@@ -3,7 +3,7 @@ before_script:
  - "export JAVA_OPTS='-Xmx512m -Xss1M -XX:+CMSClassUnloadingEnabled'"
 language: scala
 scala:
-  - 2.10.4
-  - 2.11.5
+  - 2.10.6
+  - 2.11.8
 jdk:
   - oraclejdk8
