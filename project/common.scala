@@ -19,10 +19,10 @@ object Common {
 
     scalaVersion := defaultScalaVersion,
 
-    organization := "net.databinder.dispatch",
+    organization := "com.github.maiflai",
 
     homepage :=
-      Some(new java.net.URL("http://dispatch.databinder.net/")),
+      Some(new java.net.URL("https://github.com/maiflai/reboot")),
 
     publishMavenStyle := true,
 
@@ -40,14 +40,18 @@ object Common {
 
     pomExtra := (
       <scm>
-        <url>git@github.com:dispatch/reboot.git</url>
-        <connection>scm:git:git@github.com:dispatch/reboot.git</connection>
+        <url>git@github.com:maiflai/reboot.git</url>
+        <connection>scm:git:git@github.com:maiflai/reboot.git</connection>
       </scm>
       <developers>
         <developer>
           <id>n8han</id>
           <name>Nathan Hamblen</name>
           <url>http://twitter.com/n8han</url>
+        </developer>
+        <developer>
+          <id>maiflai</id>
+          <name>Stu</name>
         </developer>
       </developers>)
   )
