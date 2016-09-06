@@ -38,46 +38,7 @@ object RawUri {
 }
 
 object UriEncode {
-  // uri character sets
-  def alpha = lowalpha ++ upalpha
-  def lowalpha = 'a' to 'z'
-  def upalpha = 'A' to 'Z'
-  def digit = '0' to '9'
-  def alphanum = alpha ++ digit
-  def mark = '-' :: '_' :: '.' :: '!' :: '~' :: '*' ::
-             '\'' :: '(' :: ')' :: Nil
-  def unreserved = alphanum ++ mark
-  def pchar = unreserved ++ (
-    ':' :: '@' :: '&' :: '=' :: '+' :: '$' :: ',' :: Nil
-  )
-  val segmentValid = (';' +: pchar).toSet
-
-  private val validMarkers = (0 to segmentValid.max) map { i => segmentValid(i.toChar) } toArray
-  private def isValidChar(ch: Char) = (ch < validMarkers.length) && validMarkers(ch)
-
   def path(pathSegment: String, encoding: String = "UTF-8") = {
-    if (pathSegment.forall(isValidChar)) {
-      pathSegment
-    }
-    else {
-      val sb = new StringBuilder(pathSegment.length << 1)
-
-      pathSegment foreach { ch =>
-        if (isValidChar(ch)) {
-          sb.append(ch)
-        }
-        else {
-          ch.toString.getBytes(encoding) foreach { b =>
-            val hi = (b >>> 4) & 0xf
-            val lo = b & 0xf
-            sb.append('%')
-              .append((if (hi > 9) hi + '7' else hi + '0').toChar)
-              .append((if (lo > 9) lo + '7' else lo + '0').toChar)
-          }
-        }
-      }
-
-      sb.toString
-    }
+    java.net.URLEncoder.encode(pathSegment, encoding).replace("+", "%20")
   }
 }
