@@ -34,6 +34,8 @@ object Common {
         Some("releases"  at nexus + "service/local/staging/deploy/maven2")
     },
 
+    credentials += Credentials(Path.userHome / ".ivy2" / ".credentials"),
+
     publishArtifact in Test := false,
 
     licenses := Seq("LGPL v3" -> url("http://www.gnu.org/licenses/lgpl.txt")),
