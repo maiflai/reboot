@@ -1,0 +1,21 @@
+{
+  "organization" : "com.github.maiflai",
+  "name" : "dispatch-tagsoup",
+  "version" : "0.12.0",
+  "description" : "Dispatch module providing tagsoup xml and html parsing support",
+  "site" : "https://github.com/maiflai/reboot",
+  "tags" : [ ],
+  "docs" : "",
+  "resolvers" : [ "https://oss.sonatype.org/content/repositories/releases" ],
+  "dependencies" : [ {
+    "organization" : "org.ccil.cowan.tagsoup",
+    "name" : "tagsoup",
+    "version" : "1.2.1"
+  } ],
+  "scalas" : [ "2.10.6", "2.11.8" ],
+  "licenses" : [ {
+    "name" : "LGPL v3",
+    "url" : "http://www.gnu.org/licenses/lgpl.txt"
+  } ],
+  "sbt" : false
+}
